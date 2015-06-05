@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Heyu4</title>
+  
+  <script src="//maps.google.com/maps/api/js?v=3.13&sensor=false&libraries=geometry"></script>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-static-top">
+	<div class="container">
+		<a href="#" class="navbar-brand"> never miss another connection</a>
+		<button class="navbar-toggle" data-toggle="collapse" data-target='.navHeaderCollaspe'>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</button>
+	<div class="collapse navbar-collapse navHeaderCollapse"> 
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="#"> home </a></li>
+			<li><a href="#"> home </a></li>
+			<li><a href="#"> home </a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="container_message">
+ <% flash.each do |name, msg| %>
+   <%= content_tag(:div, msg, class: "alert alert-info") %>
+ <% end %>
+
+ <%= yield %>
+ <!-- Note: "flash" is a message that appears after an action but does not stay on the page, like "thanks for signing up!"
+
+ Note2 = <%= %> is erb's way of saying "put string", thus, anything with html or css should have an "=" whereas actual methods or functions don't need them, thus, <% %> is better in those cases -->
+ </div>
+
+<div class="navbar navbar-inverse">
+<div class="container">
+	<p>site built by cmav&clee</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
