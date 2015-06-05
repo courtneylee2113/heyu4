@@ -1,0 +1,44 @@
+<%= form_for @pin do |f| %>
+  <% if @pin.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= "#{pluralize(@pin.errors.count, "error")} prohibited this pin from being saved:" %>
+      </h2>
+      <ul>
+        <% @pin.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+ <div class="field">
+    <%= f.label :latitude %>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %>
+    <%= f.text_field :longitude %>
+  
+  <div class="actions">
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>
+
+
