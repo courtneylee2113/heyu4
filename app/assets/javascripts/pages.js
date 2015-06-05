@@ -15,4 +15,5 @@ $(function() {
 	});
 
  GMaps.on('click', map.map, function(event) { console.log(event) })
+
 })
