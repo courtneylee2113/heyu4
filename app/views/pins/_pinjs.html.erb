@@ -1,0 +1,10 @@
+map.addMarker({
+  lat: <%= pin.latitude %>,
+  lng: <%= pin.longitude %>,
+  title: '<%= j pin.title %>',
+	infoWindow: {
+	  content: '<%= j render pin %>'
+	}
+});
+
+console.log("marker created for pin #<%= pin.id %>")

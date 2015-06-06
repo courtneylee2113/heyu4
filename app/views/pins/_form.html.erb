@@ -1,4 +1,5 @@
 <%= form_for @pin do |f| %>
+ 
   <% if @pin.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -28,13 +29,7 @@
   <div class="field">
     <%= f.label :address %>
     <%= f.text_field :address %>
- <div class="field">
-    <%= f.label :latitude %>
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %>
-    <%= f.text_field :longitude %>
+ 
   
   <div class="actions">
     <%= f.submit 'Save' %>

@@ -1,14 +1,35 @@
 <h1>Pins</h1>
 
-<div id="pins" data-pins="<% json for @pin %>">
-<% @pins.each do |pin| %>
-	<h2> link_to pins.desription, pin %>
-	<span class="description">(<%= pluralize(pin.description.size, 'description')%>)</span>
-	</h2>
-	<div class="info">
-		<%= pin.title.description %>
-		</div>
-		<div class="content"><%= pin.title %></div>
+<div id="map">
+</div>
+
+<script>
+  $(function(){
+
+  	map = new GMaps({
+		  div: '#map',
+		  lat: -12.043333,
+		  lng: -77.028333
+		});
+
+		GMaps.geolocate({
+		  success: function(position) {
+		    map.setCenter(position.coords.latitude, position.coords.longitude);
+		  },
+		  error: function(error) {
+		    alert('Geolocation failed: '+error.message);
+		  },
+		  not_supported: function() {
+		    alert("Your browser does not support geolocation");
+		  }
+		});
+
+		<% @pins.each do |pin| %>
+			<%= render partial: "pinjs", locals: {pin: pin} %>
 		<% end %>
-		</div>
+		
+})
+
+
+</script>
 

@@ -7,7 +7,8 @@ class PinsController < ApplicationController
 # attr_accessor :id, :description, :title, :lat, :lng, :address, :venue, :orientation, :date
 
   def index
-    render json: @pins, each_serializer: PinSerializer
+    @pins = Pin.all
+    # render json: @pins, each_serializer: PinSerializer
   end
 
   # def show
@@ -15,12 +16,12 @@ class PinsController < ApplicationController
   # end
 
   def show
-  @pin = Pin.find(params[:id])
-  respond_to do |format|
-    format.html
-    format.json { render json: @pin }
+    @pin = Pin.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @pin }
+    end
   end
-end
 
   def new
     @pin = Pin.new
@@ -31,10 +32,14 @@ end
 
   def create
     @pin = Pin.new(pin_params)
-    if @pin.save
-      redirect_to @pin, notice: 'Pin was successfully created.'
-    else
-      render :new
+    respond_to do |f|
+      if @pin.save
+        f.html { redirect_to @pin, notice: 'Pin was successfully created.' }
+        f.js
+      else
+        f.html { render :new }
+        f.js
+      end
     end
   end
 
