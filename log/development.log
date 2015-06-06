@@ -17769,3 +17769,764 @@ SQLite3::SQLException - no such column: users.facebook_id:
 
 Started POST "/__better_errors/79ca8e1d342f7957/variables" for ::1 at 2015-06-06 19:31:31 -0400
 >>>>>>> imran
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreatePins (20150605160228)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "pins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "title" varchar, "latitude" float, "longitude" float, "address" varchar, "venue" varchar, "orientation" varchar, "date" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150605160228"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+Migrating to CreateUsers (20150606193246)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "facebook_id" bigint, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150606193246"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "pins" ("title", "description", "address", "latitude", "longitude", "venue", "orientation", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["title", "Title 1"], ["description", "Description 1"], ["address", "109 McCaul Street, Toronto Eaton Centre, Toronto, ON M5T 3K5"], ["latitude", 43.6541298], ["longitude", -79.3910992], ["venue", "McDonalds"], ["orientation", "W4M"], ["created_at", "2015-06-06 23:32:39.632926"], ["updated_at", "2015-06-06 23:32:39.632926"]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "pins" ("title", "description", "address", "latitude", "longitude", "venue", "orientation", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Title 2"], ["description", "Description 2"], ["address", "710 King Street West, Toronto, ON M5V 2Y6"], ["latitude", 43.6440653], ["longitude", -79.40336080000002], ["venue", "McDonalds"], ["orientation", "W4M"], ["created_at", "2015-06-06 23:32:39.745772"], ["updated_at", "2015-06-06 23:32:39.745772"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "pins" ("title", "description", "address", "latitude", "longitude", "venue", "orientation", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["title", "Title 3"], ["description", "Description 3"], ["address", "160 Spadina Ave, Toronto, ON M5T 2C2"], ["latitude", 43.648836], ["longitude", -79.3966968], ["venue", "McDonalds"], ["orientation", "W4M"], ["created_at", "2015-06-06 23:32:39.849395"], ["updated_at", "2015-06-06 23:32:39.849395"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-06 19:32:48 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (193.1ms)
+Completed 200 OK in 2886ms (Views: 2861.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2015-06-06 19:32:54 -0400
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2015-06-06 19:32:55 -0400
+
+
+Started GET "/auth/facebook/callback?code=AQC8hsPmRKu87myO77O7N2KX2RHaYUDpOXSvzRGMN2YuFWU1kgfLe5bgYFIkFUzD95eXEws_EOzm18aj8rQPg5SC4FPlNDvnO3YWiFLnb9qvSoUHyQa0i3eV2x2q8iSiK1PtTgoXxlhnEf727PVWurQF1v5ny41W-Q5HQpo8xpCgIpmdYuWkHxcZM0R61nDlJZskpnsxTVtUXDDSPJ8ASxo2l01YcHhVApWITHMvNKrLTrhjfqyeyOrsT86tBT3XeDjXiUdssY01ouegNk0JDPTrYcP-59aXT-ehzkdB297ap7DV-0mYdKPJOe4ah8WJLUo&state=4612bfa38bfe9d0ba5a39c50c2d9e9b1cab51ba99bdd8d72" for 127.0.0.1 at 2015-06-06 19:32:55 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"code"=>"AQC8hsPmRKu87myO77O7N2KX2RHaYUDpOXSvzRGMN2YuFWU1kgfLe5bgYFIkFUzD95eXEws_EOzm18aj8rQPg5SC4FPlNDvnO3YWiFLnb9qvSoUHyQa0i3eV2x2q8iSiK1PtTgoXxlhnEf727PVWurQF1v5ny41W-Q5HQpo8xpCgIpmdYuWkHxcZM0R61nDlJZskpnsxTVtUXDDSPJ8ASxo2l01YcHhVApWITHMvNKrLTrhjfqyeyOrsT86tBT3XeDjXiUdssY01ouegNk0JDPTrYcP-59aXT-ehzkdB297ap7DV-0mYdKPJOe4ah8WJLUo", "state"=>"4612bfa38bfe9d0ba5a39c50c2d9e9b1cab51ba99bdd8d72"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT 1  [["facebook_id", 10153512699743949]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("facebook_id", "created_at", "updated_at") VALUES (?, ?, ?)  [["facebook_id", 10153512699743949], ["created_at", "2015-06-06 23:32:55.764862"], ["updated_at", "2015-06-06 23:32:55.764862"]]
+  [1m[36m (5.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "name" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Su Mp"], ["updated_at", "2015-06-06 23:32:55.772998"], ["id", 1]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT "pins".* FROM "pins"[0m
+  Rendered pins/_pin.html.erb (0.8ms)
+  Rendered pins/_pinjs.html.erb (17.9ms)
+  Rendered pins/_pin.html.erb (0.1ms)
+  Rendered pins/_pinjs.html.erb (1.7ms)
+  Rendered pins/_pin.html.erb (0.1ms)
+  Rendered pins/_pinjs.html.erb (1.6ms)
+  Rendered users/login.html.erb within layouts/application (90.0ms)
+Completed 200 OK in 544ms (Views: 271.8ms | ActiveRecord: 9.2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/underscore-min.map"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.1) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.1) lib/rack/server.rb:286:in `start'
+  railties (4.2.1) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.1) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.6) lib/spring/client/rails.rb:28:in `load'
+  spring (1.3.6) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.6) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.6) lib/spring/client.rb:26:in `run'
+  spring (1.3.6) bin/spring:48:in `<top (required)>'
+  spring (1.3.6) lib/spring/binstub.rb:11:in `load'
+  spring (1.3.6) lib/spring/binstub.rb:11:in `<top (required)>'
+  /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `load'
+  bin/rails:3:in `<main>'
+
+
+
+ActionController::RoutingError (No route matches [GET] "/assets/underscore-min.map"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.1) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.1) lib/rack/server.rb:286:in `start'
+  railties (4.2.1) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.1) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.6) lib/spring/client/rails.rb:28:in `load'
+  spring (1.3.6) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.6) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.6) lib/spring/client.rb:26:in `run'
+  spring (1.3.6) bin/spring:48:in `<top (required)>'
+  spring (1.3.6) lib/spring/binstub.rb:11:in `load'
+  spring (1.3.6) lib/spring/binstub.rb:11:in `<top (required)>'
+  /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `load'
+  bin/rails:3:in `<main>'
+
+
+
+ActionController::RoutingError (No route matches [GET] "/assets/underscore-min.map"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.1) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.1) lib/rack/server.rb:286:in `start'
+  railties (4.2.1) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.1) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.6) lib/spring/client/rails.rb:28:in `load'
+  spring (1.3.6) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.6) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.6) lib/spring/client.rb:26:in `run'
+  spring (1.3.6) bin/spring:48:in `<top (required)>'
+  spring (1.3.6) lib/spring/binstub.rb:11:in `load'
+  spring (1.3.6) lib/spring/binstub.rb:11:in `<top (required)>'
+  /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `load'
+  bin/rails:3:in `<main>'
+
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-06 19:42:38 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (426.9ms)
+Completed 200 OK in 1056ms (Views: 1054.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pins/new" for 127.0.0.1 at 2015-06-06 19:42:40 -0400
+Processing by PinsController#new as HTML
+  Rendered pins/_form.html.erb (277.8ms)
+  Rendered pins/new.html.erb within layouts/application (296.4ms)
+Completed 200 OK in 459ms (Views: 458.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pins" for 127.0.0.1 at 2015-06-06 19:43:09 -0400
+Processing by PinsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q3yCVUv982cI7hsogctqcDYmABLkETxxe1RBcIrSWt1GEz3VljOA/A28xkgDMWWnHcqO1ysUVDF3OcER3JvH9A==", "pin"=>{"title"=>"Hot Asian", "description"=>"hot asian chick on king west near bitmaker", "date(1i)"=>"2015", "date(2i)"=>"6", "date(3i)"=>"6", "address"=>"220 king street west, toronto, on"}, "commit"=>"Save"}
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "pins" ("description", "title", "address", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["description", "hot asian chick on king west near bitmaker"], ["title", "Hot Asian"], ["address", "220 king street west, toronto, on"], ["latitude", 43.6472849], ["longitude", -79.3870757], ["created_at", "2015-06-06 23:43:09.470980"], ["updated_at", "2015-06-06 23:43:09.470980"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/pins/4
+Completed 302 Found in 163ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/pins/4" for 127.0.0.1 at 2015-06-06 19:43:09 -0400
+Processing by PinsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered pins/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 171ms (Views: 146.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pins/" for 127.0.0.1 at 2015-06-06 19:43:18 -0400
+Processing by PinsController#index as HTML
+  [1m[35mPin Load (0.2ms)[0m  SELECT "pins".* FROM "pins"
+  Rendered pins/_pin.html.erb (0.2ms)
+  Rendered pins/_pinjs.html.erb (21.6ms)
+  Rendered pins/_pin.html.erb (0.2ms)
+  Rendered pins/_pinjs.html.erb (2.1ms)
+  Rendered pins/_pin.html.erb (0.1ms)
+  Rendered pins/_pinjs.html.erb (1.7ms)
+  Rendered pins/_pin.html.erb (0.1ms)
+  Rendered pins/_pinjs.html.erb (1.5ms)
+  Rendered pins/index.html.erb within layouts/application (45.2ms)
+Completed 200 OK in 216ms (Views: 215.5ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-06 19:50:13 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (513.7ms)
+Completed 200 OK in 987ms (Views: 986.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2015-06-06 19:50:16 -0400
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2015-06-06 19:50:16 -0400
+
+
+Started GET "/auth/facebook/callback?code=AQDbMY4tPoZNlo9938vWQ5zje5lD9FdSv-KyXZG3_GN94k4QbGpcLs6yF5SdtYAnvpu6bJ7RkTFGUWxQReWiv2UQLbjggnKzutoAiijAmob_w9FJYKev4XHXlsMEiu86TM2lW6MvnNfFUppjDJMmnONeBKEfy2JRlffchS5w8eY7G3WXqipUtU3Sd10KLCC3sYnoI77ReDNFbhX0hPxuKHIjW5bU1wMJroDanY4PNRXlZM2lb23K-jHfrnxJv6V55qc2CuvWUqJEO9W104Mvai8Rzd-7QN43K5qKKm28HRBSq51Ve3G2SJccI-c5ux493Gg&state=fd2e389a83c6ee18408255aca5f9883335d4cd422d3eb07c" for 127.0.0.1 at 2015-06-06 19:50:17 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"code"=>"AQDbMY4tPoZNlo9938vWQ5zje5lD9FdSv-KyXZG3_GN94k4QbGpcLs6yF5SdtYAnvpu6bJ7RkTFGUWxQReWiv2UQLbjggnKzutoAiijAmob_w9FJYKev4XHXlsMEiu86TM2lW6MvnNfFUppjDJMmnONeBKEfy2JRlffchS5w8eY7G3WXqipUtU3Sd10KLCC3sYnoI77ReDNFbhX0hPxuKHIjW5bU1wMJroDanY4PNRXlZM2lb23K-jHfrnxJv6V55qc2CuvWUqJEO9W104Mvai8Rzd-7QN43K5qKKm28HRBSq51Ve3G2SJccI-c5ux493Gg", "state"=>"fd2e389a83c6ee18408255aca5f9883335d4cd422d3eb07c"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT 1[0m  [["facebook_id", 10153512699743949]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mPin Load (0.2ms)[0m  SELECT "pins".* FROM "pins"
+  Rendered pins/_pin.html.erb (0.2ms)
+  Rendered pins/_pinjs.html.erb (21.5ms)
+  Rendered pins/_pin.html.erb (0.1ms)
+  Rendered pins/_pinjs.html.erb (1.7ms)
+  Rendered pins/_pin.html.erb (0.1ms)
+  Rendered pins/_pinjs.html.erb (1.7ms)
+  Rendered pins/_pin.html.erb (0.1ms)
+  Rendered pins/_pinjs.html.erb (1.8ms)
+  Rendered users/login.html.erb within layouts/application (48.9ms)
+Completed 200 OK in 374ms (Views: 199.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-06 19:51:45 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (358.8ms)
+Completed 200 OK in 1405ms (Views: 1404.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2015-06-06 19:51:48 -0400
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2015-06-06 19:51:48 -0400
+
+
+Started GET "/auth/facebook/callback?code=AQCfoRRF5XqeTjrjKvhMyJ1ISt_yN4ZcjX8BVAA-wEFCFm9lcc4Xt8Hptx8HKKHHAu65YnRuQg1rbGhcMMHuwVJAyNIC00OHOLbgltYkZe9PGuTAYmTm_5OYXdXlcg9S9sbuGzd86te3Ii250CM1S19jw3Hu3WL7bYOCuS2VzO_O2B4mzlqYaiVMauRKARdc7W8uevbygOy0q_PpRSfVyaKEVl4kSbmhtl_xvPWSpD7z-1aHlNSjM2cKZgm5ufQqJF7buEvLpoM_q1PpBNfcfevgRijAwmgYfLWi0iitXLGyCtU4R2BEsEKk2ieQk5k4nnQ&state=bcbd50b79dc3b688e25295d142c72b0300df94d7074a7a1f" for 127.0.0.1 at 2015-06-06 19:51:48 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"code"=>"AQCfoRRF5XqeTjrjKvhMyJ1ISt_yN4ZcjX8BVAA-wEFCFm9lcc4Xt8Hptx8HKKHHAu65YnRuQg1rbGhcMMHuwVJAyNIC00OHOLbgltYkZe9PGuTAYmTm_5OYXdXlcg9S9sbuGzd86te3Ii250CM1S19jw3Hu3WL7bYOCuS2VzO_O2B4mzlqYaiVMauRKARdc7W8uevbygOy0q_PpRSfVyaKEVl4kSbmhtl_xvPWSpD7z-1aHlNSjM2cKZgm5ufQqJF7buEvLpoM_q1PpBNfcfevgRijAwmgYfLWi0iitXLGyCtU4R2BEsEKk2ieQk5k4nnQ", "state"=>"bcbd50b79dc3b688e25295d142c72b0300df94d7074a7a1f"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT 1[0m  [["facebook_id", 10153512699743949]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mPin Load (0.3ms)[0m  SELECT "pins".* FROM "pins"
+  Rendered pins/_pin.html.erb (0.2ms)
+  Rendered pins/_pinjs.html.erb (32.9ms)
+  Rendered pins/_pin.html.erb (0.1ms)
+  Rendered pins/_pinjs.html.erb (1.9ms)
+  Rendered pins/_pin.html.erb (0.1ms)
+  Rendered pins/_pinjs.html.erb (1.7ms)
+  Rendered pins/_pin.html.erb (0.1ms)
+  Rendered pins/_pinjs.html.erb (1.8ms)
+  Rendered users/login.html.erb within layouts/application (75.9ms)
+Completed 200 OK in 113217ms (Views: 1049.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-06 19:53:47 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (61.6ms)
+Completed 200 OK in 304ms (Views: 302.6ms | ActiveRecord: 0.0ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/underscore-min.map"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.1) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.1) lib/rack/server.rb:286:in `start'
+  railties (4.2.1) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.1) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.6) lib/spring/client/rails.rb:28:in `load'
+  spring (1.3.6) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.6) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.6) lib/spring/client.rb:26:in `run'
+  spring (1.3.6) bin/spring:48:in `<top (required)>'
+  spring (1.3.6) lib/spring/binstub.rb:11:in `load'
+  spring (1.3.6) lib/spring/binstub.rb:11:in `<top (required)>'
+  /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `load'
+  bin/rails:3:in `<main>'
+
+
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2015-06-06 19:53:54 -0400
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2015-06-06 19:53:55 -0400
+
+
+Started GET "/auth/facebook/callback?code=AQDDUEaZE4Ho9mF07CvZ97mLKa47h3JCBoQUA5odfNkoHsWzb5h7AbVgjEL0T39Su0KIHppX600Kbo0p4H_iKx7aTNBFJFTCiE6Qs3rpe13C9TToIE1sC4l1IT-vrQ8wSbqVmjL4yUDGfDfEk2ZY8YCx5LOmReXahoSy58D4sjxOBpT6iUuAWKdQ185xOViWP_40Dl_aEkEqFRa3-gmTOBF9NtLcqUuqstPsfRN28zN_Et2ybQ3g_VlvPNeKj3zGGDd1sF3DW3hWtpe6WbKTxcQEoDhi2huPbCpCiMnM5yWVNxHqgqYor1YHS6cSJ7deUsE&state=17f23e5b41abf9b7a6839cbee932f65c602d8ca3f15bdda7" for 127.0.0.1 at 2015-06-06 19:53:55 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"code"=>"AQDDUEaZE4Ho9mF07CvZ97mLKa47h3JCBoQUA5odfNkoHsWzb5h7AbVgjEL0T39Su0KIHppX600Kbo0p4H_iKx7aTNBFJFTCiE6Qs3rpe13C9TToIE1sC4l1IT-vrQ8wSbqVmjL4yUDGfDfEk2ZY8YCx5LOmReXahoSy58D4sjxOBpT6iUuAWKdQ185xOViWP_40Dl_aEkEqFRa3-gmTOBF9NtLcqUuqstPsfRN28zN_Et2ybQ3g_VlvPNeKj3zGGDd1sF3DW3hWtpe6WbKTxcQEoDhi2huPbCpCiMnM5yWVNxHqgqYor1YHS6cSJ7deUsE", "state"=>"17f23e5b41abf9b7a6839cbee932f65c602d8ca3f15bdda7"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT 1[0m  [["facebook_id", 0]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("facebook_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["facebook_id", 0], ["created_at", "2015-06-06 23:53:55.773305"], ["updated_at", "2015-06-06 23:53:55.773305"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "name" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["name", "10153512699743949"], ["updated_at", "2015-06-06 23:53:55.777720"], ["id", 2]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  Rendered users/login.html.erb within layouts/application (50.8ms)
+Completed 500 Internal Server Error in 108337ms (ActiveRecord: 5.5ms)
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/views/users/login.html.erb:1:in `_app_views_users_login_html_erb___3733207147862436466_70103575511460'
+  actionview (4.2.1) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.1) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.1) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:404:in `call_app!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:362:in `callback_phase'
+  omniauth-oauth2 (1.3.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+  omniauth-facebook (2.0.1) lib/omniauth/strategies/facebook.rb:73:in `block in callback_phase'
+  omniauth-facebook (2.0.1) lib/omniauth/strategies/facebook.rb:136:in `with_authorization_code!'
+  omniauth-facebook (2.0.1) lib/omniauth/strategies/facebook.rb:72:in `callback_phase'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:227:in `callback_call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:184:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack (1.6.1) lib/rack/etag.rb:24:in `call'
+  rack (1.6.1) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.1) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.1) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.1) lib/rack/server.rb:286:in `start'
+  railties (4.2.1) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.1) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.6) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.6) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.6) lib/spring/client.rb:26:in `run'
+  spring (1.3.6) bin/spring:48:in `<top (required)>'
+  spring (1.3.6) lib/spring/binstub.rb:11:in `<top (required)>'
+  /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `<main>'
+
+
+
+Started POST "/__better_errors/f4da5f89740f7463/variables" for 127.0.0.1 at 2015-06-06 19:55:44 -0400
+  [1m[35mPin Load (0.2ms)[0m  SELECT "pins".* FROM "pins"
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-06 19:55:48 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 160ms (Views: 159.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-06 19:55:48 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 213ms (Views: 212.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2015-06-06 19:55:49 -0400
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2015-06-06 19:55:50 -0400
+
+
+Started GET "/auth/facebook/callback?code=AQDMWxprig4yf8zCPmReqnZ8bTkmeyeX2d03VWDPg2PmvnybHieRd3b6TMUdcIOANL7nGLzaQZvnCTX4QXCBVhHs3yLApvKxbmA0z46-ViduAlfJB62Mz-Wwa7wSytN19DQM54BgMZqSSlZdR_4dPUGCOOrPgi8P0BcehP10f3SCDzreMFBI4lxmdVHpLN3-LJOGFWVVjp0lnxeva-SjTmFhbVF85XQwX_AJ-RjyBv2J_FamEGK6D4cwkN7e8S5QtPOTfCkgwmfVZj1a3p_mAi-v0Zp9etxFfkJBaslWDkZEilGV1fHboroKb40qbwRtLw4&state=aa719658ee23366a8b34b87add7fedbcf2adf8437cc05488" for 127.0.0.1 at 2015-06-06 19:55:50 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"code"=>"AQDMWxprig4yf8zCPmReqnZ8bTkmeyeX2d03VWDPg2PmvnybHieRd3b6TMUdcIOANL7nGLzaQZvnCTX4QXCBVhHs3yLApvKxbmA0z46-ViduAlfJB62Mz-Wwa7wSytN19DQM54BgMZqSSlZdR_4dPUGCOOrPgi8P0BcehP10f3SCDzreMFBI4lxmdVHpLN3-LJOGFWVVjp0lnxeva-SjTmFhbVF85XQwX_AJ-RjyBv2J_FamEGK6D4cwkN7e8S5QtPOTfCkgwmfVZj1a3p_mAi-v0Zp9etxFfkJBaslWDkZEilGV1fHboroKb40qbwRtLw4", "state"=>"aa719658ee23366a8b34b87add7fedbcf2adf8437cc05488"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT 1[0m  [["facebook_id", 10153512699743949]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 2]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  Rendered users/login.html.erb within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 19458ms (ActiveRecord: 7.8ms)
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/views/users/login.html.erb:1:in `_app_views_users_login_html_erb___3733207147862436466_70103575511460'
+  actionview (4.2.1) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.1) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.1) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:404:in `call_app!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:362:in `callback_phase'
+  omniauth-oauth2 (1.3.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+  omniauth-facebook (2.0.1) lib/omniauth/strategies/facebook.rb:73:in `block in callback_phase'
+  omniauth-facebook (2.0.1) lib/omniauth/strategies/facebook.rb:136:in `with_authorization_code!'
+  omniauth-facebook (2.0.1) lib/omniauth/strategies/facebook.rb:72:in `callback_phase'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:227:in `callback_call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:184:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack (1.6.1) lib/rack/etag.rb:24:in `call'
+  rack (1.6.1) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.1) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.1) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.1) lib/rack/server.rb:286:in `start'
+  railties (4.2.1) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.1) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `<top (required)>'
+  spring (1.3.6) lib/spring/client/rails.rb:28:in `call'
+  spring (1.3.6) lib/spring/client/command.rb:7:in `call'
+  spring (1.3.6) lib/spring/client.rb:26:in `run'
+  spring (1.3.6) bin/spring:48:in `<top (required)>'
+  spring (1.3.6) lib/spring/binstub.rb:11:in `<top (required)>'
+  /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  bin/spring:13:in `<top (required)>'
+  bin/rails:3:in `<main>'
+
+
+
+Started POST "/__better_errors/0078f07f2474bdfe/variables" for 127.0.0.1 at 2015-06-06 19:56:10 -0400
+  [1m[35mPin Load (0.4ms)[0m  SELECT "pins".* FROM "pins"
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-06 19:56:14 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 199ms (Views: 198.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-06 19:56:14 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 181ms (Views: 180.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2015-06-06 19:56:16 -0400
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2015-06-06 19:56:16 -0400
+
+
+Started GET "/auth/facebook/callback?code=AQDdi9kx460l9Y1BbwCB5vsrpcl3Tm2pYohzfxZuPNF2ZiXf-ZHW_oKqbFnMclvuFn0P47EhTM93difOGtvO_Un-m_uHB7pBAwjpJNdj6GLykPb0pOzHlKTF2XpLCpT2gQW_CUx0jVpEcFLF_aHxEX8Pac7NDWdM3rujJYfdkBGQsRG8azHzHM3zrA4RsjkZGBUBlMchkbFM23me-FA_rrZOdWfxppxGB_9jXEUq3b2-xuvssZWvyRMXuyXBorvIw1Y_EiwXovls1Isi_u8JIaQncgdqMlfCG7V3EcKL6ULGF6yX1nCT7iChNXze5dBymwA&state=38c1611ca1fee622340ea740527cb6a8846a4d10143141a8" for 127.0.0.1 at 2015-06-06 19:56:16 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"code"=>"AQDdi9kx460l9Y1BbwCB5vsrpcl3Tm2pYohzfxZuPNF2ZiXf-ZHW_oKqbFnMclvuFn0P47EhTM93difOGtvO_Un-m_uHB7pBAwjpJNdj6GLykPb0pOzHlKTF2XpLCpT2gQW_CUx0jVpEcFLF_aHxEX8Pac7NDWdM3rujJYfdkBGQsRG8azHzHM3zrA4RsjkZGBUBlMchkbFM23me-FA_rrZOdWfxppxGB_9jXEUq3b2-xuvssZWvyRMXuyXBorvIw1Y_EiwXovls1Isi_u8JIaQncgdqMlfCG7V3EcKL6ULGF6yX1nCT7iChNXze5dBymwA", "state"=>"38c1611ca1fee622340ea740527cb6a8846a4d10143141a8"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."facebook_id" = ? LIMIT 1[0m  [["facebook_id", 10153512699743949]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("facebook_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["facebook_id", 10153512699743949], ["created_at", "2015-06-06 23:56:16.703424"], ["updated_at", "2015-06-06 23:56:16.703424"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "name" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["name", "Su Mp"], ["updated_at", "2015-06-06 23:56:16.707751"], ["id", 3]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
