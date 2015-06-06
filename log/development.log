@@ -9033,3 +9033,31 @@ SQLite3::SQLException: no such column: pins.lat: SELECT "pins".* FROM "pins" WHE
   [1m[35m (0.1ms)[0m  begin transaction
   [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "pins" WHERE "pins"."id" = ?[0m  [["id", 9]]
   [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (13.6ms)[0m  [1mINSERT INTO "pins" ("title", "description", "address", "latitude", "longitude", "venue", "orientation", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Title 1"], ["description", "Description 1"], ["address", "109 McCaul Street, Toronto Eaton Centre, Toronto, ON M5T 3K5"], ["latitude", 43.6541298], ["longitude", -79.3910992], ["venue", "McDonalds"], ["orientation", "W4M"], ["created_at", "2015-06-06 17:36:59.165950"], ["updated_at", "2015-06-06 17:36:59.165950"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pins" ("title", "description", "address", "latitude", "longitude", "venue", "orientation", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["title", "Title 2"], ["description", "Description 2"], ["address", "710 King Street West, Toronto, ON M5V 2Y6"], ["latitude", 43.6440653], ["longitude", -79.40336080000002], ["venue", "McDonalds"], ["orientation", "W4M"], ["created_at", "2015-06-06 17:36:59.295019"], ["updated_at", "2015-06-06 17:36:59.295019"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pins" ("title", "description", "address", "latitude", "longitude", "venue", "orientation", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Title 3"], ["description", "Description 3"], ["address", "160 Spadina Ave, Toronto, ON M5T 2C2"], ["latitude", 43.648836], ["longitude", -79.3966968], ["venue", "McDonalds"], ["orientation", "W4M"], ["created_at", "2015-06-06 17:36:59.394152"], ["updated_at", "2015-06-06 17:36:59.394152"]]
+  [1m[35m (1.6ms)[0m  commit transaction
