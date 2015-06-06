@@ -3,25 +3,24 @@
       <div class="slider_wrapper">
         <ul id="image_slider">
           
-          <li> <%= image_tag "heyu.png", :height => "500px" %> </li>
+          <li> <%= image_tag "heyu.png", :height => "400px" %> </li>
           
-          <li> <%= image_tag "Ins1.png", :height => "500px" %> </li>
+          <li> <%= image_tag "Ins1.png", :height => "400px" %> </li>
          
-          <li> <%= image_tag "Ins2.png", :height => "500px"%> </li>
+          <li> <%= image_tag "Ins2.png", :height => "400px"%> </li>
           
-          <li> <%= image_tag "Ins3.png", :height => "500px"%> </li>
+          <li> <%= image_tag "Ins3.png", :height => "400px"%> </li>
           
-          <li> <%= image_tag "Ins4.png", :height => "500px" %> </li>
+          <li> <%= image_tag "Ins4.png", :height => "400px" %> </li>
 
-          <li> <%= link_to "Facebook Login", '/auth/facebook' %> </li>
-    
         </ul>         
         <span class="nvgt" id="prev"></span>
         <span class="nvgt" id="next"></span>
       </div>
     </div>
-</div>
 
-
-
-
+ </div>
+<div class="container_fb"> 
+ <%= link_to image_tag( "facebook-login-button.png", :size => "175x50"), '/auth/facebook'  %>
+ </div>
+ <br><br>

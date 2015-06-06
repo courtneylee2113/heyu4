@@ -38,18 +38,22 @@ p {
 
 .container_slider{
 width:600px;
-  height:500px;
+  height:400px;
   padding:20px;
   border:1px solid white;
   -webkit-box-sizing:border-box;
   -moz-box-sizing:border-box;
   box-sizing:border-box;
   background: #FFFFFF;
+ position: absolute;
+
+  margin-left: 25%;
 }
+
 .slider_wrapper{
   overflow: hidden;
   position:relative;
-  height:500px;
+  height:400px;
   top:auto;
 }
 #image_slider{
@@ -84,6 +88,10 @@ width:600px;
 #next{
   background: #000 url('https://dl.dropboxusercontent.com/u/65639888/image/next.png') no-repeat center;
   right: 0px;
+}
+
+.container_fb{
+  margin-left: 40%;
 }
 
 
