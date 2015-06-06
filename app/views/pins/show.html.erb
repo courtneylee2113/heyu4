@@ -1,0 +1,32 @@
+<!-- <p id="notice">
+  <%= notice %>
+</p> -->
+<p>
+  <b>Title:</b>
+  <%= @pin.title %>
+</p>
+<p>
+  <b>Description:</b>
+  <%= @pin.description %>
+</p>
+<p>
+  <b>Date:</b>
+  <%= @pin.date %>
+</p>
+<p>
+  <b>Venue:</b>
+  <%= @pin.venue %>
+</p>
+<p>
+  <b>Address:</b>
+  <%= @pin.address %>
+</p>
+<p>
+  <b>orientation:</b>
+  <%= @pin.orientation %>
+</p>
+
+
+<%= link_to 'Edit', edit_pin_path(@pin) %>
+
+<%= link_to 'Back', pins_path %>

@@ -20,8 +20,7 @@
 		</button>
 	<div class="collapse navbar-collapse navHeaderCollapse"> 
 		<ul class="nav navbar-nav navbar-right">
-			<li><%= link_to 'home', root_path%></li>
-			<li><%= link_to 'register', new_user_registration_path %> </li>
+<li><%= link_to 'home', root_path%></li><li><%= link_to 'register', new_user_registration_path %> </li>
 			<li><%= link_to 'login', new_user_registration_path%></li>
 <li><%= link_to 'log out', destroy_user_session_path, method: :delete %></li>
 </ul>
@@ -39,6 +38,9 @@
 
  Note2 = <%= %> is erb's way of saying "put string", thus, anything with html or css should have an "=" whereas actual methods or functions don't need them, thus, <% %> is better in those cases -->
  </div>
+
+
+
 </body>
 <div class="navbar navbar-inverse navbar-fixed-bottom">
 <ul class="nav navbar-nav navbar-right">
@@ -46,8 +48,7 @@
 </ul>
 <p class="foot">site built by cmav&clee</p>
 </div>
+
 </div>
 </div>
-
-
 </html>

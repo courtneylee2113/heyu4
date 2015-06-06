@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp
 .DS_Store
+
+tmp/pids/server.pid
+log/development.log

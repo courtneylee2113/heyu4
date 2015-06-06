@@ -15,4 +15,5 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require gmapsjs
+//= require underscore
 //= require_tree .
