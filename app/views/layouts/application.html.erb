@@ -9,31 +9,27 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-static-top">
-	<div class="container">
-<a href="#" class="navbar-brand"> never miss another connection</a>
+  <div class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+   <a href="#" class="navbar-brand"><%= image_tag("heyu.png", :id =>'heyu') %> never miss another connection </a>
 
-		
-		<button class="navbar-toggle" data-toggle="collapse" data-target='.navHeaderCollaspe'>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		</button>
-	<div class="collapse navbar-collapse navHeaderCollapse"> 
-		<ul class="nav navbar-nav navbar-right">
-<li><%= link_to 'home', root_path%></li><li><%= link_to 'register', new_user_registration_path %> </li>
-			<li><%= link_to 'login', new_user_registration_path%></li>
-<li><%= link_to 'log out', destroy_user_session_path, method: :delete %></li>
-</ul>
-</div>
-</div>
-</div>
+ <button class="navbar-toggle" data-toggle="collapse" data-target='.navHeaderCollaspe'>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+      <li><%= link_to 'home', root_path %></li>
+      <li><%= link_to 'register', root_path %> </li>
+      <li><%= link_to 'login', root_path %></li>
+<li><%= link_to 'log out', root_path, method: :delete %></li>
+ </ul>
+ </div>
+ </div>
 
 <div class="container_message">
  <% flash.each do |name, msg| %>
    <%= content_tag(:div, msg, class: "alert alert-info") %>
  <% end %>
-
+<br>
  <%= yield %>
  <!-- Note: "flash" is a message that appears after an action but does not stay on the page, like "thanks for signing up!"
 
@@ -45,9 +41,9 @@
 </body>
 <div class="navbar navbar-inverse navbar-fixed-bottom">
 <ul class="nav navbar-nav navbar-right">
-<a class="navbar brand"><%= image_tag("twitter.png", :size => "30x30", :id =>'twitter') %></a>
+<a class="navbar brand"><%= link_to image_tag("twitter.png", :size => "30x30", :id =>'twitter'), 'https://twitter.com/heyu_connect' %></a>
 </ul>
-<p>site built by cmav&clee</p>
+<p class="foot">site built by cmav&clee</p>
 </div>
 
 </div>

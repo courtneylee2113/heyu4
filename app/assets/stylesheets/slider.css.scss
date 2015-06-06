@@ -1,0 +1,26 @@
+
+.container_slider {
+  max-width: 400px;
+  background-color: black;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+.container_slider  {
+  background-color: white;
+  width: 100%;
+  display: inline-block;
+  display: none;
+}
+.container_slider {
+  width: 100%;
+  height: auto;
+}
+.next {
+  right: 5px;
+}
+
+.prev {
+  left: 5px;
+}
+
