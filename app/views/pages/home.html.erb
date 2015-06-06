@@ -1,66 +1,25 @@
 <div id="map">
-
-<section class="slider">
-  
-  <button class="next">Next</button>
-  <button class="prev">Previous</button>
-  
   <div class="container_slider">
+      <div class="slider_wrapper">
+        <ul id="image_slider">
+          
+          <li> <%= image_tag "heyu.png", :height => "500px" %> </li>
+          
+          <li> <%= image_tag "Ins1.png", :height => "500px" %> </li>
+         
+          <li> <%= image_tag "Ins2.png", :height => "500px"%> </li>
+          
+          <li> <%= image_tag "Ins3.png", :height => "500px"%> </li>
+          
+          <li> <%= image_tag "Ins4.png", :height => "500px" %> </li>
     
-    <div style="display: inline-block;">
-    <%= image_tag "Ins1.png", :height => "500px" %>
+        </ul>         
+        <span class="nvgt" id="prev"></span>
+        <span class="nvgt" id="next"></span>
+      </div>
     </div>
-    <div>
-     <%= image_tag "Ins2.png", :height => "500px"%>
-    </div>
-    <div>
-     <%= image_tag "Ins3.png", :height => "500px"%>
-    </div>
-    <div>
-      <%= image_tag "Ins4.png", :height => "500px" %>
-    </div>
-    </div>
-</section>
 </div>
 
 
-
-
-
-
-
-
-
-<!-- <div class"container">
-</div>
-    -->
-  <!--  <%= link_to new_user_session_path  %>
-=======
-<div id='map'></div>
-   
-   <%= link_to "Log In", new_user_session_path  %>
-   
-   <%= link_to "Sign Up", new_user_registration_path %>
-
-   <%= link_to "Post Pin", new_pin_path %>
-	<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
- 
-   
- </p>
- 
- <%= link_to "Account Settings", edit_user_registration_path %>
- 
- <%= link_to "Log Out", destroy_user_session_path, method: :delete%>
-</div>
-
-   <%= link_to new_user_session_path  %>
->>>>>>> 0c325a72662f3d4a16bd648a9fb39e037b286708
-   
-   <%= link_to new_user_registration_path %>
-
- 
- <%= link_to  edit_user_registration_path %>
- 
- <%= link_to destroy_user_session_path, method: :delete%> -->
 
 

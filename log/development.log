@@ -12978,17 +12978,37 @@ Load paths:
 Started POST "/__better_errors/425b8bdb17bbe856/variables" for ::1 at 2015-06-06 13:42:55 -0400
 >>>>>>> connectpin
 >>>>>>> 0c325a72662f3d4a16bd648a9fb39e037b286708
+<<<<<<< HEAD
   [1m[36m (2.2ms)[0m  [1mCREATE TABLE "pins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "title" varchar, "latitude" float, "longitude" float, "address" varchar, "venue" varchar, "orientation" varchar, "date" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
   [1m[35m (1.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
   [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
   [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
   [1m[36m (0.1ms)[0m  [1m            SELECT sql
+=======
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePins (20150605160228)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "pins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "title" varchar, "latitude" float, "longitude" float, "address" varchar, "venue" varchar, "orientation" varchar, "date" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150605160228"]]
+  [1m[36m (39.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+>>>>>>> slider
             FROM sqlite_master
             WHERE name='index_users_on_email' AND type='index'
             UNION ALL
             SELECT sql
             FROM sqlite_temp_master
             WHERE name='index_users_on_email' AND type='index'
+<<<<<<< HEAD
 [0m
   [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
   [1m[36m (1.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
@@ -13027,6 +13047,140 @@ ArgumentError - wrong number of arguments (3 for 0..2):
   actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
   actionview (4.2.1) lib/action_view/template.rb:143:in `render'
   actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:66:in `render_with_layout'
+=======
+
+
+
+Started GET "/" for ::1 at 2015-06-06 13:57:02 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (12.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (521.1ms)
+Completed 200 OK in 7819ms (Views: 7750.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 13:57:10 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 266ms (Views: 265.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 13:57:45 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 248ms (Views: 246.9ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-06 13:58:07 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (19.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+Can't verify CSRF token authenticity
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 159ms (ActiveRecord: 20.2ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 13:58:07 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 249ms (Views: 248.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:06:32 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (123.3ms)
+Completed 200 OK in 1398ms (Views: 1394.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-06-06 14:06:39 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 262ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:06:39 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 234ms (Views: 233.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-06-06 14:06:42 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:06:42 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 302ms (Views: 300.8ms | ActiveRecord: 0.0ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/underscore-min.map"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/courtneylee/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/courtneylee/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/courtneylee/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+
+Started GET "/" for ::1 at 2015-06-06 14:19:24 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (12.9ms)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.0ms)
+
+SyntaxError - syntax error, unexpected ')', expecting '='
+..., edit_user_registration_path );@output_buffer.safe_append='
+...                               ^
+/Users/courtneylee/Desktop/heyu4/app/views/pages/home.html.erb:52: syntax error, unexpected tLABEL, expecting '='
+...troy_user_session_path, method: :delete);@output_buffer.safe...
+...                               ^
+/Users/courtneylee/Desktop/heyu4/app/views/pages/home.html.erb:61: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/courtneylee/Desktop/heyu4/app/views/pages/home.html.erb:63: syntax error, unexpected keyword_end, expecting ')':
+  app/views/pages/home.html.erb:51:in `'
+  actionview (4.2.1) lib/action_view/template.rb:296:in `compile'
+  actionview (4.2.1) lib/action_view/template.rb:245:in `block (2 levels) in compile!'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:244:in `block in compile!'
+  actionview (4.2.1) lib/action_view/template.rb:232:in `compile!'
+  actionview (4.2.1) lib/action_view/template.rb:144:in `block in render'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+>>>>>>> slider
   actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
   actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
   actionview (4.2.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
@@ -13040,7 +13194,11 @@ ArgumentError - wrong number of arguments (3 for 0..2):
   actionpack (4.2.1) lib/action_controller/metal/rendering.rb:16:in `render'
   actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
   activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+<<<<<<< HEAD
   /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+=======
+  /Users/courtneylee/.rbenv/versions/2.2.1/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+>>>>>>> slider
   activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
   actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
   actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
@@ -13120,6 +13278,7 @@ ArgumentError - wrong number of arguments (3 for 0..2):
   rack (1.6.1) lib/rack/lock.rb:17:in `call'
   rack (1.6.1) lib/rack/content_length.rb:15:in `call'
   rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+<<<<<<< HEAD
   /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
   /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
   /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
@@ -13348,11 +13507,70 @@ Completed 500 Internal Server Error in 181ms (ActiveRecord: 0.0ms)
 
 NameError - undefined local variable or method `new_user_session' for #<#<Class:0x007f90bfbf07a0>:0x007f90babc16d0>:
   app/views/layouts/application.html.erb:31:in `_app_views_layouts_application_html_erb___1945073235684573116_70129792388500'
+=======
+  /Users/courtneylee/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/courtneylee/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/courtneylee/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/c3411cfb341dcf2d/variables" for ::1 at 2015-06-06 14:19:24 -0400
+
+
+Started GET "/" for ::1 at 2015-06-06 14:20:37 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (122.1ms)
+Completed 200 OK in 949ms (Views: 947.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:21:41 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (144.2ms)
+Completed 200 OK in 5258ms (Views: 5256.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:32:23 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (465.3ms)
+Completed 200 OK in 8057ms (Views: 8056.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:34:34 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (1418.2ms)
+Completed 200 OK in 16476ms (Views: 16470.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:35:57 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (54.7ms)
+Completed 200 OK in 5346ms (Views: 5345.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:38:40 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (245.6ms)
+Completed 500 Internal Server Error in 303ms (ActiveRecord: 0.0ms)
+
+ArgumentError - wrong number of arguments (0 for 1..2):
+  app/views/pages/home.html.erb:12:in `_app_views_pages_home_html_erb___3947994663375444343_70108210924920'
+>>>>>>> slider
   actionview (4.2.1) lib/action_view/template.rb:145:in `block in render'
   activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
   actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
   actionview (4.2.1) lib/action_view/template.rb:143:in `render'
+<<<<<<< HEAD
   actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:66:in `render_with_layout'
+=======
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+>>>>>>> slider
   actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
   actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
   actionview (4.2.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
@@ -13366,7 +13584,11 @@ NameError - undefined local variable or method `new_user_session' for #<#<Class:
   actionpack (4.2.1) lib/action_controller/metal/rendering.rb:16:in `render'
   actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
   activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+<<<<<<< HEAD
   /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+=======
+  /Users/courtneylee/.rbenv/versions/2.2.1/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+>>>>>>> slider
   activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
   actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
   actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
@@ -13446,6 +13668,7 @@ NameError - undefined local variable or method `new_user_session' for #<#<Class:
   rack (1.6.1) lib/rack/lock.rb:17:in `call'
   rack (1.6.1) lib/rack/content_length.rb:15:in `call'
   rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+<<<<<<< HEAD
   /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
   /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
   /Users/sump/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
@@ -15188,4 +15411,89 @@ Migrating to CreatePins (20150605160228)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
   [1m[35mSQL (0.3ms)[0m  INSERT INTO "pins" ("title", "description", "address", "latitude", "longitude", "venue", "orientation", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["title", "Title 3"], ["description", "Description 3"], ["address", "160 Spadina Ave, Toronto, ON M5T 2C2"], ["latitude", 43.648836], ["longitude", -79.3966968], ["venue", "McDonalds"], ["orientation", "W4M"], ["created_at", "2015-06-06 19:05:50.040763"], ["updated_at", "2015-06-06 19:05:50.040763"]]
   [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+<<<<<<< HEAD
+=======
+  /Users/courtneylee/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/courtneylee/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/courtneylee/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/05a513c7917c5841/variables" for ::1 at 2015-06-06 14:38:41 -0400
+
+
+Started GET "/" for ::1 at 2015-06-06 14:40:02 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (60.7ms)
+Completed 200 OK in 907ms (Views: 906.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:40:32 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 367ms (Views: 365.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:41:07 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 360ms (Views: 358.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:47:06 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (211.7ms)
+Completed 200 OK in 1319ms (Views: 1318.2ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-06 14:47:11 -0400
+Processing by Devise::SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:47:11 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 295ms (Views: 294.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:55:33 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (1934.4ms)
+Completed 200 OK in 15127ms (Views: 15126.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:55:58 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (533.2ms)
+Completed 200 OK in 1501ms (Views: 1499.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:56:11 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 255ms (Views: 253.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:57:20 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (210.2ms)
+Completed 200 OK in 909ms (Views: 907.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 14:59:38 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (188.1ms)
+Completed 200 OK in 5639ms (Views: 5637.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 15:00:11 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (306.0ms)
+Completed 200 OK in 12049ms (Views: 12037.5ms | ActiveRecord: 0.0ms)
+>>>>>>> slider
+=======
 >>>>>>> e3caf0aeb74bc00ea72a642d43536c032bdbda53
+>>>>>>> 5ac24ece278fc5778ff27c8af4c1c3aa0b07db55
