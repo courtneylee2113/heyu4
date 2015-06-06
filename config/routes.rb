@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   devise_scope :user do
-    get '/logout',  :to => 'sessions#destroy'
+    get '/signout', to: 'devise/sessions#destroy', as: :signout
   end
 
   resources :pins
