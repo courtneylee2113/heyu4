@@ -15518,3 +15518,292 @@ Completed 200 OK in 12049ms (Views: 12037.5ms | ActiveRecord: 0.0ms)
             WHERE name='index_users_on_email' AND type='index'
 
 >>>>>>> fb
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for ::1 at 2015-06-06 15:39:47 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError - 
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+:
+  activerecord (4.2.1) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.1) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/m5/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/m5/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/m5/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/23824ea53c9dd06a/variables" for ::1 at 2015-06-06 15:39:48 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150606193246)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+SQLite3::SQLException: table "users" already exists: CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150606193246)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+SQLite3::SQLException: table "users" already exists: CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreatePins (20150605160228)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "pins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "title" varchar, "latitude" float, "longitude" float, "address" varchar, "venue" varchar, "orientation" varchar, "date" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150605160228"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateUsers (20150606193246)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150606193246"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for ::1 at 2015-06-06 15:41:05 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 2840ms (Views: 2826.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for ::1 at 2015-06-06 15:41:16 -0400
+
+
+Started GET "/auth/facebook" for ::1 at 2015-06-06 15:41:16 -0400
+
+
+Started GET "/auth/facebook/callback?code=AQBuS_WvfgBcFVMAGi9FtOEjPeUjBZ7Yagsf7mry_80WfstXdLitqhcHj8NfaO8zv_25bsstGnwJIXFQwPzOTZuF-wbCgyZ9H56s3FYYdxP5XTb_5C0nz5ubxdP1tBfSdkJE9oMavY54-3u99aZEXNDLehA3tUW_bwhVBg7z1jtPQCdE_uLrvJzl8SF-mQSVmAP9NSw2cUq-_B40W4-QK_cnqVcjek-r8zTNJm16PQSpfSbvPsf3W4h6TUKN4oPsT1Ys11d0nq2L9Y5odt-YXiic6my5k4eTyIBFMRPopfR1MBTKKD5TMQI2iDo0MWxJLW8&state=1001f0762739e750bc9cfc65da41f0dc2ed5ee04ce52dd12" for ::1 at 2015-06-06 15:41:23 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"code"=>"AQBuS_WvfgBcFVMAGi9FtOEjPeUjBZ7Yagsf7mry_80WfstXdLitqhcHj8NfaO8zv_25bsstGnwJIXFQwPzOTZuF-wbCgyZ9H56s3FYYdxP5XTb_5C0nz5ubxdP1tBfSdkJE9oMavY54-3u99aZEXNDLehA3tUW_bwhVBg7z1jtPQCdE_uLrvJzl8SF-mQSVmAP9NSw2cUq-_B40W4-QK_cnqVcjek-r8zTNJm16PQSpfSbvPsf3W4h6TUKN4oPsT1Ys11d0nq2L9Y5odt-YXiic6my5k4eTyIBFMRPopfR1MBTKKD5TMQI2iDo0MWxJLW8", "state"=>"1001f0762739e750bc9cfc65da41f0dc2ed5ee04ce52dd12"}
+  Rendered users/login.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 643ms (Views: 182.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 15:42:00 -0400
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 283ms (Views: 278.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 15:42:02 -0400
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 209ms (Views: 208.3ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/" for ::1 at 2015-06-06 15:42:04 -0400
+
+ActionController::RoutingError (No route matches [DELETE] "/"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/m5/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/m5/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/m5/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/m5/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/m5/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/m5/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (20.2ms)
+  Rendered /Users/m5/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /Users/m5/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (137.2ms)
+
+
+Started GET "/auth/facebook" for ::1 at 2015-06-06 15:42:07 -0400
+
+
+Started GET "/auth/facebook" for ::1 at 2015-06-06 15:42:08 -0400
+
+
+Started GET "/auth/facebook/callback?code=AQAHNhEbX13ieBnqr4B9FnMXQPgUfelU0ezGgslkq8EaHdM-Q4iDxhuQIIX0kWdbDbBCubvNoXhUmQSGVtbywqaJIxdZd7yvTePMEh9XIWNL7HIzeTuDO3v0C4Hdg4PxmpXTJG65oJ5CgKDoQcSjtgae7I8wUex8zEuQmH4-SYPecxDs34UxNfWDCeqCnRvG7mtwl7i98AK0NrN6ETcppp5X3Ej0XkjQvt0NGg8WWt92seaQyHtKlQksPoHr_zT07npVh5md8jgEmFNTDA-roERlNT9ce0KOEPZvjzBXkbNsbVjPvEsWqMCWSkkfr9MF7wM&state=c410553d420f941e0f811d49f0cbf453e5b2b4bda713ec8d" for ::1 at 2015-06-06 15:42:08 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"code"=>"AQAHNhEbX13ieBnqr4B9FnMXQPgUfelU0ezGgslkq8EaHdM-Q4iDxhuQIIX0kWdbDbBCubvNoXhUmQSGVtbywqaJIxdZd7yvTePMEh9XIWNL7HIzeTuDO3v0C4Hdg4PxmpXTJG65oJ5CgKDoQcSjtgae7I8wUex8zEuQmH4-SYPecxDs34UxNfWDCeqCnRvG7mtwl7i98AK0NrN6ETcppp5X3Ej0XkjQvt0NGg8WWt92seaQyHtKlQksPoHr_zT07npVh5md8jgEmFNTDA-roERlNT9ce0KOEPZvjzBXkbNsbVjPvEsWqMCWSkkfr9MF7wM", "state"=>"c410553d420f941e0f811d49f0cbf453e5b2b4bda713ec8d"}
+  Rendered users/login.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 596ms (Views: 134.6ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/" for ::1 at 2015-06-06 15:42:11 -0400
+
+ActionController::RoutingError (No route matches [DELETE] "/"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/m5/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/m5/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/m5/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/m5/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/m5/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /Users/m5/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /Users/m5/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/m5/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (94.9ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 15:42:20 -0400
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 154ms (Views: 153.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pins" for ::1 at 2015-06-06 15:42:27 -0400
+Processing by PinsController#index as HTML
+  [1m[35mPin Load (0.7ms)[0m  SELECT "pins".* FROM "pins"
+  Rendered pins/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 235ms (Views: 208.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/pins/new" for ::1 at 2015-06-06 15:42:41 -0400
+Processing by PinsController#new as HTML
+  Rendered pins/_form.html.erb (72.8ms)
+  Rendered pins/new.html.erb within layouts/application (91.3ms)
+Completed 200 OK in 347ms (Views: 318.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/pins" for ::1 at 2015-06-06 15:43:00 -0400
+Processing by PinsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k4Li+6TkiLeuQ9ZVzRrEp6EExp7YHhi8i6oqbCagbZP+4KsHjTn8FYIfaEnHsZTL1qQr1+l+6AlDB5nBbTlK0g==", "pin"=>{"title"=>"test", "description"=>"test", "date(1i)"=>"2015", "date(2i)"=>"6", "date(3i)"=>"6", "address"=>"220 King St W, Suite 200, Toronto, ON M5H 1K4"}, "commit"=>"Save"}
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "pins" ("description", "title", "address", "latitude", "longitude", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["description", "test"], ["title", "test"], ["address", "220 King St W, Suite 200, Toronto, ON M5H 1K4"], ["latitude", 43.6472849], ["longitude", -79.3870757], ["created_at", "2015-06-06 19:43:00.515269"], ["updated_at", "2015-06-06 19:43:00.515269"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/pins/1
+Completed 302 Found in 178ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/pins/1" for ::1 at 2015-06-06 15:43:00 -0400
+Processing by PinsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPin Load (0.5ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered pins/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 256ms (Views: 234.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pins/" for ::1 at 2015-06-06 15:43:06 -0400
+Processing by PinsController#index as HTML
+  [1m[36mPin Load (0.3ms)[0m  [1mSELECT "pins".* FROM "pins"[0m
+  Rendered pins/_pin.html.erb (0.9ms)
+  Rendered pins/_pinjs.html.erb (4.1ms)
+  Rendered pins/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 180ms (Views: 178.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pins/" for ::1 at 2015-06-06 15:43:55 -0400
+Processing by PinsController#index as HTML
+  [1m[35mPin Load (0.2ms)[0m  SELECT "pins".* FROM "pins"
+  Rendered pins/_pin.html.erb (0.3ms)
+  Rendered pins/_pinjs.html.erb (2.5ms)
+  Rendered pins/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 202ms (Views: 200.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 15:44:20 -0400
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 248ms (Views: 247.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for ::1 at 2015-06-06 15:44:23 -0400
+
+
+Started GET "/auth/facebook" for ::1 at 2015-06-06 15:44:23 -0400
+
+
+Started GET "/auth/facebook/callback?code=AQBH8ElA0-Zcx3cGjmnOT2pUlg_p2ErfBm_7S38oGpu1KUMj7xtiRW7s0lrHbLrzYcCWO4hW5Vabd0fJx3bgALR_HiNDi26uwyvswfgncc2BpsT8GopSpkQRiHPw6-WkVQUswR3eJEQ-6ABcHven_aokE0hZUEAiVRvW8KdADWc3gtViTXgnhNGto-2jJnNKUqFfMOWbj0xuhPOEhfRrv8lI7I8oBPbmHSsUF3jiBpsjfY2RJGGPEW15S-c19V1XDGflSSF0HxVyfPnLbxtPhZC7zBps6BgbIHO1IbZTZDTs_0wJHfqXPd6pkCHZJ0y0dEo&state=aeb65f473c82fa28916c8aba2145f3b98967914551f239f9" for ::1 at 2015-06-06 15:44:23 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"code"=>"AQBH8ElA0-Zcx3cGjmnOT2pUlg_p2ErfBm_7S38oGpu1KUMj7xtiRW7s0lrHbLrzYcCWO4hW5Vabd0fJx3bgALR_HiNDi26uwyvswfgncc2BpsT8GopSpkQRiHPw6-WkVQUswR3eJEQ-6ABcHven_aokE0hZUEAiVRvW8KdADWc3gtViTXgnhNGto-2jJnNKUqFfMOWbj0xuhPOEhfRrv8lI7I8oBPbmHSsUF3jiBpsjfY2RJGGPEW15S-c19V1XDGflSSF0HxVyfPnLbxtPhZC7zBps6BgbIHO1IbZTZDTs_0wJHfqXPd6pkCHZJ0y0dEo", "state"=>"aeb65f473c82fa28916c8aba2145f3b98967914551f239f9"}
+  Rendered users/login.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 496ms (Views: 161.1ms | ActiveRecord: 0.0ms)
