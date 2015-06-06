@@ -29,6 +29,7 @@ gem 'geocoder'
 gem 'active_model_serializers'
 gem 'bootstrap-sass'
 gem 'sprockets'
+gem 'omniauth-facebook'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -43,6 +44,8 @@ group :development, :test do
 	gem 'byebug'
 	gem 'quiet_assets'
 	gem 'best_errors'
-
+	gem 'figaro'
 	gem 'spring'
+	gem "koala", "~> 2.0"
+	gem 'omniauth-facebook'
 end
