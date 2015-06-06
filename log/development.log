@@ -15498,6 +15498,14 @@ Completed 200 OK in 12049ms (Views: 12037.5ms | ActiveRecord: 0.0ms)
 >>>>>>> e3caf0aeb74bc00ea72a642d43536c032bdbda53
 <<<<<<< HEAD
 >>>>>>> 5ac24ece278fc5778ff27c8af4c1c3aa0b07db55
+<<<<<<< HEAD
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "pins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "title" varchar, "latitude" float, "longitude" float, "address" varchar, "venue" varchar, "orientation" varchar, "date" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "provider" varchar, "uid" varchar) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+=======
 =======
   [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
@@ -15511,13 +15519,34 @@ Completed 200 OK in 12049ms (Views: 12037.5ms | ActiveRecord: 0.0ms)
 [0m
   [1m[35m (0.1ms)[0m              SELECT sql
             FROM sqlite_master
+>>>>>>> 890dee0e6f0d3a26d5929a8e70b4511ebcdd71cf
             WHERE name='index_users_on_email' AND type='index'
             UNION ALL
             SELECT sql
             FROM sqlite_temp_master
             WHERE name='index_users_on_email' AND type='index'
+<<<<<<< HEAD
+[0m
+  [1m[35m (1.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (2.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150606183337')
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150605160228')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "pins" ("title", "description", "address", "latitude", "longitude", "venue", "orientation", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["title", "Title 1"], ["description", "Description 1"], ["address", "109 McCaul Street, Toronto Eaton Centre, Toronto, ON M5T 3K5"], ["latitude", 43.6541298], ["longitude", -79.3910992], ["venue", "McDonalds"], ["orientation", "W4M"], ["created_at", "2015-06-06 19:33:52.024537"], ["updated_at", "2015-06-06 19:33:52.024537"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "pins" ("title", "description", "address", "latitude", "longitude", "venue", "orientation", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Title 2"], ["description", "Description 2"], ["address", "710 King Street West, Toronto, ON M5V 2Y6"], ["latitude", 43.6440653], ["longitude", -79.40336080000002], ["venue", "McDonalds"], ["orientation", "W4M"], ["created_at", "2015-06-06 19:33:52.133394"], ["updated_at", "2015-06-06 19:33:52.133394"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "pins" ("title", "description", "address", "latitude", "longitude", "venue", "orientation", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["title", "Title 3"], ["description", "Description 3"], ["address", "160 Spadina Ave, Toronto, ON M5T 2C2"], ["latitude", 43.648836], ["longitude", -79.3966968], ["venue", "McDonalds"], ["orientation", "W4M"], ["created_at", "2015-06-06 19:33:52.225620"], ["updated_at", "2015-06-06 19:33:52.225620"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+=======
 
 >>>>>>> fb
+<<<<<<< HEAD
   [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
   [1m[36m (0.2ms)[0m  [1m            SELECT sql
@@ -15807,3 +15836,6 @@ Processing by UsersController#login as HTML
   Parameters: {"code"=>"AQBH8ElA0-Zcx3cGjmnOT2pUlg_p2ErfBm_7S38oGpu1KUMj7xtiRW7s0lrHbLrzYcCWO4hW5Vabd0fJx3bgALR_HiNDi26uwyvswfgncc2BpsT8GopSpkQRiHPw6-WkVQUswR3eJEQ-6ABcHven_aokE0hZUEAiVRvW8KdADWc3gtViTXgnhNGto-2jJnNKUqFfMOWbj0xuhPOEhfRrv8lI7I8oBPbmHSsUF3jiBpsjfY2RJGGPEW15S-c19V1XDGflSSF0HxVyfPnLbxtPhZC7zBps6BgbIHO1IbZTZDTs_0wJHfqXPd6pkCHZJ0y0dEo", "state"=>"aeb65f473c82fa28916c8aba2145f3b98967914551f239f9"}
   Rendered users/login.html.erb within layouts/application (0.2ms)
 Completed 200 OK in 496ms (Views: 161.1ms | ActiveRecord: 0.0ms)
+=======
+>>>>>>> 890dee0e6f0d3a26d5929a8e70b4511ebcdd71cf
+>>>>>>> 3b06fdb8dfe324bd7f2e23cd3bd49379479aa88a
