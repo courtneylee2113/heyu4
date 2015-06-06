@@ -47,5 +47,5 @@ group :development, :test do
 	gem 'best_errors'
 	gem 'figaro'
 	gem 'spring'
-	
+	gem 'thin'
 end
