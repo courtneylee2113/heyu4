@@ -6,6 +6,7 @@ def index
 
   def login
     @user = User.koala(request.env['omniauth.auth']['credentials'])
+    @pins = Pin.all
   end
 
 
