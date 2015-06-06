@@ -15547,3 +15547,35 @@ Completed 200 OK in 12049ms (Views: 12037.5ms | ActiveRecord: 0.0ms)
 
 >>>>>>> fb
 >>>>>>> 890dee0e6f0d3a26d5929a8e70b4511ebcdd71cf
+
+
+Started GET "/" for ::1 at 2015-06-06 15:45:14 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (16.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (835.2ms)
+Completed 200 OK in 3636ms (Views: 3535.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 15:45:45 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (81.9ms)
+Completed 200 OK in 617ms (Views: 616.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pins" for ::1 at 2015-06-06 15:46:09 -0400
+Processing by PinsController#index as HTML
+  [1m[35mPin Load (17.7ms)[0m  SELECT "pins".* FROM "pins"
+  Rendered pins/_pin.html.erb (1.4ms)
+  Rendered pins/_pinjs.html.erb (22.4ms)
+  Rendered pins/_pin.html.erb (0.1ms)
+  Rendered pins/_pinjs.html.erb (2.7ms)
+  Rendered pins/_pin.html.erb (0.1ms)
+  Rendered pins/_pinjs.html.erb (2.3ms)
+  Rendered pins/index.html.erb within layouts/application (113.5ms)
+Completed 200 OK in 470ms (Views: 380.5ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/" for ::1 at 2015-06-06 15:48:50 -0400
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (150.6ms)
+Completed 200 OK in 1044ms (Views: 1043.1ms | ActiveRecord: 0.0ms)
