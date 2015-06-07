@@ -19209,6 +19209,7 @@ Processing by UsersController#login as HTML
   [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "name" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["name", "Su Mp"], ["updated_at", "2015-06-06 23:56:16.707751"], ["id", 3]]
   [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+<<<<<<< HEAD
 =======
 
 Started GET "/pins" for 127.0.0.1 at 2015-06-06 19:04:49 -0400
@@ -19519,3 +19520,55 @@ Processing by UsersController#login as HTML
   Rendered users/login.html.erb within layouts/application (52.8ms)
 Completed 200 OK in 488ms (Views: 309.5ms | ActiveRecord: 0.7ms)
 >>>>>>> slider
+=======
+  [1m[36m (0.2ms)[0m  [1mDROP DATABASE IF EXISTS "heyu_development"[0m
+  [1m[35m (673.4ms)[0m  CREATE DATABASE "heyu_development" ENCODING = 'utf8'
+  [1m[36m (5.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePins (20150605160228)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (6.5ms)[0m  [1mCREATE TABLE "pins" ("id" serial primary key, "description" character varying, "title" character varying, "latitude" float, "longitude" float, "address" character varying, "venue" character varying, "orientation" character varying, "date" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150605160228"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20150606193246)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying, "facebook_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150606193246"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (5.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'pins'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (27.4ms)[0m  [1mINSERT INTO "pins" ("title", "description", "address", "latitude", "longitude", "venue", "orientation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Title 1"], ["description", "Description 1"], ["address", "109 McCaul Street, Toronto Eaton Centre, Toronto, ON M5T 3K5"], ["latitude", 43.6541298], ["longitude", -79.3910992], ["venue", "McDonalds"], ["orientation", "W4M"], ["created_at", "2015-06-07 00:06:24.608789"], ["updated_at", "2015-06-07 00:06:24.608789"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "pins" ("title", "description", "address", "latitude", "longitude", "venue", "orientation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["title", "Title 2"], ["description", "Description 2"], ["address", "710 King Street West, Toronto, ON M5V 2Y6"], ["latitude", 43.6440653], ["longitude", -79.40336080000002], ["venue", "McDonalds"], ["orientation", "W4M"], ["created_at", "2015-06-07 00:06:24.748937"], ["updated_at", "2015-06-07 00:06:24.748937"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "pins" ("title", "description", "address", "latitude", "longitude", "venue", "orientation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Title 3"], ["description", "Description 3"], ["address", "160 Spadina Ave, Toronto, ON M5T 2C2"], ["latitude", 43.648836], ["longitude", -79.3966968], ["venue", "McDonalds"], ["orientation", "W4M"], ["created_at", "2015-06-07 00:06:24.845820"], ["updated_at", "2015-06-07 00:06:24.845820"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+>>>>>>> 2b70614e35fccbe4a94f399ca79455364e3a4215
