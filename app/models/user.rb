@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
   def self.koala(auth)
     access_token = auth['token']
     facebook = Koala::Facebook::API.new(access_token)
-    public_attributes = facebook.get_object("me")
+    facebook.get_object("me?fields=name,picture")
   end
 end
